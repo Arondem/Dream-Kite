@@ -1,0 +1,180 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Game Container and Canvas */
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: block;
+}
+
+/* UI Overlay */
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none; /* Let clicks pass through to canvas */
+}
+
+/* Score Display */
+#score-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 10px rgba(150, 150, 255, 0.8);
+}
+
+/* String Health Bar */
+#string-health-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+}
+
+#string-health-bar {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#string-health-fill {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #ff6b6b, #ff9e40, #ffd166, #06d6a0);
+    transition: width 0.3s ease;
+}
+
+/* Mobile Controls */
+#joystick-zone {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width: 120px;
+    height: 120px;
+    z-index: 3;
+    display: none; /* Hidden by default, shown on mobile */
+}
+
+/* Game Start and End Screens */
+.game-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(25, 25, 112, 0.8), rgba(0, 0, 0, 0.9));
+    z-index: 10;
+    text-align: center;
+}
+
+.game-screen h1 {
+    font-size: 64px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(100, 149, 237, 0.8);
+    color: #fff;
+}
+
+.game-screen h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+.game-screen p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+.game-screen button {
+    padding: 15px 40px;
+    font-size: 24px;
+    background: linear-gradient(135deg, #6b5bff, #a16bff);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(107, 91, 255, 0.5);
+}
+
+.game-screen button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(107, 91, 255, 0.8);
+}
+
+#final-score {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #ffd166;
+    text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    #joystick-zone {
+        display: block;
+    }
+    
+    #score-container {
+        font-size: 18px;
+    }
+    
+    .game-screen h1 {
+        font-size: 48px;
+    }
+    
+    .game-screen h2 {
+        font-size: 36px;
+    }
+    
+    .game-screen p {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
+    .game-screen button {
+        padding: 12px 30px;
+        font-size: 20px;
+    }
+} 

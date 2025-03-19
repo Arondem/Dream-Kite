@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Kite</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <div id="score-container">
+                <span id="score-label">Score:</span>
+                <span id="score-value">0</span>
+            </div>
+            
+            <div id="string-health-container">
+                <div id="string-health-bar">
+                    <div id="string-health-fill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Controls -->
+        <div id="joystick-zone"></div>
+        
+        <!-- Game Screens -->
+        <div id="start-screen" class="game-screen">
+            <h1>Dream Kite</h1>
+            <p>Fly through surreal dreamscapes, collect sparks, and keep your kite aloft</p>
+            <button id="start-button">Fly</button>
+        </div>
+        
+        <div id="game-over-screen" class="game-screen hidden">
+            <h2>Game Over</h2>
+            <p>Your kite string has snapped!</p>
+            <div id="final-score">Score: <span id="final-score-value">0</span></div>
+            <button id="restart-button">Fly Again</button>
+        </div>
+    </div>
+
+    <!-- Libraries -->
+    <script src="lib/three.min.js"></script>
+    <script src="lib/cannon.min.js"></script>
+    <script src="lib/nipplejs.min.js"></script>
+    
+    <!-- Game Scripts -->
+    <script src="js/kite.js"></script>
+    <script src="js/string.js"></script>
+    <script src="js/controls.js"></script>
+    
+    <!-- Procedural Generation -->
+    <script src="js/procedural/wind.js"></script>
+    <script src="js/procedural/dreamscape.js"></script>
+    <script src="js/procedural/islands.js"></script>
+    <script src="js/procedural/forests.js"></script>
+    <script src="js/procedural/cities.js"></script>
+    
+    <!-- Game Objects -->
+    <script src="js/objects/obstacles.js"></script>
+    <script src="js/objects/sparks.js"></script>
+    
+    <!-- UI -->
+    <script src="js/ui/score.js"></script>
+    <script src="js/ui/health.js"></script>
+    <script src="js/ui/screens.js"></script>
+    
+    <!-- Main Game -->
+    <script src="js/game.js"></script>
+</body>
+</html> 
