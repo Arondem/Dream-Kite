@@ -89,6 +89,9 @@ function setupScene() {
     directionalLight.position.set(5, 10, 7);
     scene.add(directionalLight);
     
+    // Initialize dream sparks
+    initSparks();
+    
     // Handle window resize
     window.addEventListener('resize', onWindowResize, false);
 }
@@ -161,7 +164,10 @@ function resetGame() {
     updateHealthBar(100);
     
     // Reset objects and environment
-    // These functions will be implemented in their respective files
+    initSparks();
+    
+    // Reset obstacles
+    initObstacles();
 }
 
 /**
@@ -248,11 +254,33 @@ function updateDreamscape(gameTime, deltaTime) {
 }
 
 /**
- * Handle collisions between objects
+ * Handle collision detection and resolution
  */
 function handleCollisions() {
-    // This will be implemented with specific collision logic
-    // For now, we'll just have a placeholder
+    // Check kite collision with obstacles
+    if (checkObstacleCollisions(kite)) {
+        // Kite hit an obstacle, reduce health
+        reduceStringHealth(20);
+        
+        // If health is critical, possibly game over
+        if (stringHealth <= 0) {
+            gameOver();
+        }
+    }
+    
+    // Check string intersection with obstacles
+    if (checkStringIntersections(string.points)) {
+        // String is snagged on obstacle, increase tension
+        increaseTension(5);
+        
+        // If tension is too high, snap string
+        if (string.tension >= string.maxTension) {
+            gameOver();
+        }
+    }
+    
+    // Check for spark collection
+    updateSparks(1/60, kite.body.position);
 }
 
 // Initialize the game when the window loads

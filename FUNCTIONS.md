@@ -56,4 +56,17 @@ This document tracks all major functions in the Dream Kite game. It will be upda
 | updateHealthBar | Update string health display | health (number) | None | health.js |
 | showStartScreen | Display game start screen | None | None | screens.js |
 | showGameOverScreen | Display game over screen with score | finalScore (number) | None | screens.js |
-| saveHighScore | Save high score to local storage | score (number) | None | score.js | 
+| saveHighScore | Save high score to local storage | score (number) | None | score.js |
+
+## Objects - Sparks (js/objects/sparks.js)
+
+| Function Name | Purpose | Parameters | Return Value |
+|---------------|---------|------------|--------------|
+| `initSparks()` | Initialize the spark system | None | None |
+| `createSparkClusters()` | Create clusters of sparks | None | None |
+| `createSpark(x, y, z, size)` | Create a single spark | `x`, `y`, `z` - Position coordinates, `size` - Spark size | Spark object |
+| `spawnSpark()` | Spawn a new spark at a random position | None | None |
+| `updateSparks(deltaTime, kitePosition)` | Update all sparks | `deltaTime` - Time since last update, `kitePosition` - Kite position for collection | None |
+| `updateSpark(spark, deltaTime, time)` | Update a single spark's animation | `spark` - Spark to update, `deltaTime` - Time since last update, `time` - Current time | None |
+| `collectSpark(spark)` | Handle spark collection | `spark` - Spark being collected | None |
+| `playSparkCollectionEffect(spark)` | Visual effect when collecting a spark | `spark` - Collected spark | None | 
